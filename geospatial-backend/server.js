@@ -3,12 +3,25 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
 
+
+
 dotenv.config();
+
+
+app.use(cors());
+
+const corsOptions = {
+  origin: process.env.FRONTEND_URL, // Allow only this origin
+  methods: 'GET,POST',         // Allow specific methods
+  credentials: true,           // Allow cookies
+};
+
+
+app.use(cors(corsOptions));
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
 app.use("/uploads", express.static("uploads"));
 
 // Routes
