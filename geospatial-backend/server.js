@@ -11,7 +11,7 @@ dotenv.config();
 app.use(cors());
 
 const corsOptions = {
-  origin: process.env.FRONTEND_URL, // Allow only this origin
+  origin: 'https://sky-serve-geodata-pard.vercel.app/', // Allow only this origin
   methods: 'GET,POST',         // Allow specific methods
   credentials: true,           // Allow cookies
 };
